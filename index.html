@@ -1,36 +1,52 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Redirect Page</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <script type="text/javascript">
-    window.onload = function() {
-      // Get the query parameter 'id' from the URL
+    // Clear cookies
+    document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+    // Clear local storage
+    localStorage.clear();
+
+    // Clear session storage
+    sessionStorage.clear();
+
+    // Function to redirect to the Play Store
+    function redirectToPlayStore() {
+      // Replace 'your_app_id' with your app's ID in the Google Play Store
+            const id = urlParams.get('id');
+
+      const appStoreLink = "https://play.google.com/store/apps/details?id=com.mobileshop.puku?id="+id;
+      
+      // Redirect to the Play Store
+      window.location.replace(appStoreLink);
+    }
+
+    // Redirect to your app's deep link using the 'id'
+    function redirectWithId() {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
-
-      // Function to redirect to the Play Store
-      function redirectToPlayStore() {
-        // Replace 'your_app_id' with your app's ID in the Google Play Store
-        const appStoreLink = "https://play.google.com/store/apps/details?id=com.mobileshop.puku";
-        
-        // Redirect to the Play Store
-        // window.location.replace(appStoreLink);
-      }
-
-      // Redirect to your app's deep link using the 'id'
+      
       if (id) {
+        const deepLink = "pukuapp:?id=" + id;
         
         // Attempt to open the app's deep link
-              window.location.replace("pukuapp:");
-
+        window.location.replace(deepLink);
 
         // If the app is not installed or cannot be launched, redirect to Play Store
-        setTimeout(redirectToPlayStore, 5000); // Redirect after 2 seconds (adjust as needed)
+        setTimeout(redirectToPlayStore, 2000); // Redirect after 2 seconds (adjust as needed)
       } else {
         // If 'id' is not provided, redirect to Play Store
-        // redirectToPlayStore();
+        redirectToPlayStore();
       }
+    }
+
+    window.onload = function() {
+      redirectWithId();
     }
   </script>
 </head>
