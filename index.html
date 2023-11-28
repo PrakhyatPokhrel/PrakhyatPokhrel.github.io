@@ -1,10 +1,36 @@
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Redirect Page</title>
   <script type="text/javascript">
     window.onload = function() {
-      window.location.replace("pukuapp:");
+      // Get the query parameter 'id' from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+
+      // Function to redirect to the Play Store
+      function redirectToPlayStore() {
+        // Replace 'your_app_id' with your app's ID in the Google Play Store
+        const appStoreLink = "https://play.google.com/store/apps/details?id=your_app_id";
+        
+        // Redirect to the Play Store
+        window.location.replace(appStoreLink);
+      }
+
+      // Redirect to your app's deep link using the 'id'
+      if (id) {
+        
+        // Attempt to open the app's deep link
+              window.location.replace("pukuapp:");
+
+
+        // If the app is not installed or cannot be launched, redirect to Play Store
+        setTimeout(redirectToPlayStore, 2000); // Redirect after 2 seconds (adjust as needed)
+      } else {
+        // If 'id' is not provided, redirect to Play Store
+        redirectToPlayStore();
+      }
     }
   </script>
 </head>
