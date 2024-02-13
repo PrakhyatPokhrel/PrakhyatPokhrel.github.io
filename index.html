@@ -18,11 +18,12 @@
     // Function to redirect to the Play Store
     function redirectToPlayStore() {
       // Replace 'your_app_id' with your app's ID in the Google Play Store
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const id = urlParams.get('id');
 
       const appStoreLink = "https://play.google.com/store/apps/details?id=com.mobileshop.puku&id="+id;
-
+      
       // Redirect to the Play Store
       window.location.replace(appStoreLink);
     }
@@ -31,21 +32,10 @@
     function redirectWithId() {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
-
+      
       if (id) {
-        let deepLink;
-        if (/Android/i.test(navigator.userAgent)) {
-          // Android device
-          deepLink = "pukuapp:?id=" + id;
-        } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-          // iOS device
-          deepLink = "pukuapp://?id=" + id;
-        } else {
-          // Default to Play Store if the device type is not detected
-          redirectToPlayStore();
-          return;
-        }
-
+        const deepLink = "pukuapp:?id=" + id;
+        
         // Attempt to open the app's deep link
         window.location.replace(deepLink);
 
