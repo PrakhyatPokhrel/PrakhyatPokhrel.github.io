@@ -27,13 +27,23 @@
       // Redirect to the Play Store
       window.location.replace(appStoreLink);
     }
+    function redirectToAppStore() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+      const appStoreLink = "https://apps.apple.com/np/app";
+      
+      // Redirect to the Play Store
+      window.location.replace(appStoreLink);
+    }
 
     // Redirect to your app's deep link using the 'id'
     function redirectWithId() {
       const urlParams = new URLSearchParams(window.location.search);
       const id = urlParams.get('id');
       
-      if (id) {
+      if (id && /Android/i.test(navigator.userAgent)) {
+        
         const deepLink = "pukuapp:?id=" + id;
         
         // Attempt to open the app's deep link
@@ -41,9 +51,11 @@
 
         // If the app is not installed or cannot be launched, redirect to Play Store
         setTimeout(redirectToPlayStore, 2000); // Redirect after 2 seconds (adjust as needed)
-      } else {
+      } else if(/Android/i.test(navigator.userAgent)) {
         // If 'id' is not provided, redirect to Play Store
         redirectToPlayStore();
+      }else {
+        redirectToAppStore();
       }
     }
 
