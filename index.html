@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirect Page</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <script type="text/javascript">
-    // Clear cookies
-    document.cookie = 'username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-
-    // Clear local storage
-    localStorage.clear();
-
-    // Clear session storage
-    sessionStorage.clear();
-
-    // Function to redirect to the Play Store
-    function redirectToPlayStore() {
-      // Replace 'your_app_id' with your app's ID in the Google Play Store
-            const urlParams = new URLSearchParams(window.location.search);
-
-            const id = urlParams.get('id');
-
-      const appStoreLink = "https://play.google.com/store/apps/details?id=com.mobileshop.puku&id="+id;
-      
-      // Redirect to the Play Store
-      window.location.replace(appStoreLink);
-    }
-    function redirectToAppStore() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const id = urlParams.get('id');
-
-      const appStoreLink = "https://apps.apple.com/np/app";
-      
-      // Redirect to the Play Store
-      window.location.replace(appStoreLink);
-    }
-
-    // Redirect to your app's deep link using the 'id'
-    function redirectWithId() {
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get('id');
-      
-      if (id && /Android/i.test(navigator.userAgent)) {
-        
-        const deepLink = "pukuapp:?id=" + id;
-        
-        // Attempt to open the app's deep link
-        window.location.replace(deepLink);
-
-        // If the app is not installed or cannot be launched, redirect to Play Store
-        setTimeout(redirectToPlayStore, 2000); // Redirect after 2 seconds (adjust as needed)
-      } else if(/Android/i.test(navigator.userAgent)) {
-        // If 'id' is not provided, redirect to Play Store
-        redirectToPlayStore();
-      }else {
-        redirectToAppStore();
-      }
-    }
-
-    window.onload = function() {
-      redirectWithId();
-    }
-  </script>
+	<title>Privacy Policy</title>
 </head>
 <body>
-  Redirecting...
+	<b>Smart Palika, Sip Shala, Krishi Culture and other Smart Palika Applications -  Privacy Policy<br></b>
+
+	<p>This privacy policy has been compiled to better serve those who are concerned with how their information is being used and processed online. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our app.<br></p>
+
+	<b><p>User Interface Privacy<br></b>
+	We communicate clearly with the user whether they are aware about the purpose of our data collection or not. App is prioritized for improving the user experience and the value it provide to them.<br></p>
+
+	<b><p>Privacy by design<br></b>
+	Under GDPR privacy, it has been ensured that data privacy and data protection initiation as well as monitoring is considered critically around the life cycle of the project.  The right to data access is only limited to the personnel in the charge of the processing.<br></p>
+
+	<b><p>What personal information do we collect from the people who visit app?<br></b>
+	When using  our app, as appropriate, you may be asked to for location permission to help you with your experience.<br></p>
+
+	<b><p>How do we use your information?<br></b>
+	We may use the collected information from you when you register, sign up for our newsletter, respond to a survey or for communication, or use certain other site features in the following ways:
+	Collected information are used for gathering name and contact information of the users willing to ask support for the emergency blood as well as to the users ready to help. It is solely used for bridging communication between emergency blood seeker and helper.<br></p>
+
+	<b><p>Do we use 'cookies'?<br></b>
+	We do not use cookies for mobile app. We apply Cache only for the performance optimization of the app.<br></p>
+
+	<b><p>Third-party disclosure<br></b>
+	We strictly do not sell, trade, or transfer your Personally Identifiable Information to outside parties.<br></p>
+
+	<b><p>Third-party links<br></b>
+	We do not include or offer third-party products or services on our website.<br></p>
+
+	<b><p>Respond to user's request<br></b>
+	Any kind of relevant and accessible requests from users are responded quickly.<br></p>
+
+	<b><p>Data breach notifications to users<br></b>
+	If by any accidental purpose, database happen to be breached, users and authorities will get notified within 72 hours. Freedom and right of individuals are ensured.<br></p>
+
+	<b><p>Does our site allow third-party behavioral tracking?<br></b>
+	We strictly do not allow third-party behavioral tracking<br></p>
+
+	<b><p>Expertise team & Data protection Officers<br></b>
+	Based on the small enterprise and volunteer-ism purpose, this app has been formulated by an expert team and monitored by Data Protection Officers.<br></p>
+
+	<b>Contacting Us<br></b>
+	<p>
+		If there are any questions regarding this privacy policy, you may contact us using the information below.<br>
+		Smart Palika<br>
+		Thamel - 29<br>
+		Kathmandu, Bagmati 44600 <br>
+		Nepal<br>
+		admin@cellapp.co<br>
+	</p>
+
+	<p>
+		<b>Last Updated: 05/22/2018</b>
+	</p>
 </body>
 </html>
